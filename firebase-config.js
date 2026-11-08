@@ -6,12 +6,12 @@
       (los datos se guardan solo en este navegador).
    ========================================================= */
 window.FIREBASE_CONFIG = {
-  apiKey: "PEGA_AQUI",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyAHiWiixDap3ww40HhzzEwoLFewa4G55w0",
+  authDomain: "dentista-dc60c.firebaseapp.com",
+  projectId: "dentista-dc60c",
+  storageBucket: "dentista-dc60c.firebasestorage.app",
+  messagingSenderId: "548769548061",
+  appId: "1:548769548061:web:ff17cf0fdeb9c5b6ba43f4"
 };
 
 /* Datos del consultorio que usa el panel */
