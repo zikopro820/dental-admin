@@ -1,0 +1,51 @@
+PANEL DENTAL CABANILLAS — CÓMO CONFIGURARLO
+==========================================
+
+Sin hacer nada, el panel funciona en MODO DEMO: entras con cualquier correo y una
+contraseña de 4 o más caracteres y los datos se guardan solo en ese navegador.
+Para usarlo de verdad (varios equipos y la web conectada) sigue estos pasos:
+
+1. CREAR FIREBASE (gratis, plan Spark)
+   a) Entra a https://console.firebase.google.com → "Crear un proyecto"
+      (ej. dental-cabanillas). Puedes desactivar Google Analytics.
+   b) En el proyecto: botón "</>" (agregar app web) → ponle un nombre → Registrar.
+   c) Copia los datos de "firebaseConfig" (apiKey, authDomain, projectId...).
+
+2. PEGAR LA CONFIGURACIÓN
+   Pégalos en firebase-config.js de ESTE repositorio (dental-admin)
+   y también en firebase-config.js del repositorio "dental" (la web).
+
+3. BASE DE DATOS
+   Firebase → Firestore Database → Crear base de datos → modo producción → región
+   (southamerica-east1 o la que prefieras).
+   Luego pestaña "Reglas": borra todo, pega el contenido de firestore.rules,
+   CAMBIA los correos de ejemplo por los del personal y presiona Publicar.
+
+4. USUARIOS DEL PERSONAL
+   Firebase → Authentication → Comenzar → Correo/contraseña → Habilitar.
+   Pestaña Usuarios → Agregar usuario (los mismos correos que pusiste en las reglas).
+
+5. DOMINIO AUTORIZADO
+   Authentication → Configuración → Dominios autorizados → Agregar dominio:
+   zikopro820.github.io  (o el dominio propio del consultorio).
+
+6. PRIMER INGRESO
+   a) Entra al panel con uno de esos correos.
+   b) Tratamientos → "Cargar ejemplos" (o crea los tuyos). Igual en Tienda e inventario.
+   c) Dentistas → revisa nombres, días y horarios.
+   d) Ajustes → WhatsApp, dirección, horario, razón social y RUC para el recibo.
+   e) Editor de páginas → cambia textos, fotos y precios de la web, página por página.
+
+QUÉ HACE CADA PARTE
+- Pacientes: cada código (DC-XXXXX) es de un titular y puede incluir a su familia.
+  En la ficha del paciente: alergias (aviso en rojo), odontograma editable,
+  plan de tratamiento con presupuesto (WhatsApp y PDF), cuotas, historial y recordatorios.
+- Agenda: citas por día, semana o mes; asignar dentista; cobrar; ficha de atención con
+  lo usado (se cobra), receta para la casa (PDF), fotos/radiografías y avance del plan.
+- Recordatorios: cuotas por vencer, controles y limpiezas de más de 6 meses → WhatsApp.
+- Caja y Reportes: pagos de citas, cuotas y ventas de la tienda.
+- Radio del equipo: botón abajo a la derecha (Dentista, Recepción, Caja, Asistente).
+- Mi Sonrisa (web): el paciente ve citas, plan, odontograma, cuotas, recibos y recetas.
+
+Nota: el apiKey de Firebase NO es secreto (va en todas las webs con Firebase).
+La seguridad la dan las reglas del paso 3 y los usuarios del paso 4.
